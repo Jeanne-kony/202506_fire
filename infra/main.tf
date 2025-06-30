@@ -4,7 +4,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "4.34.0"
+      version = ">= 4.0"
     }
   }
 }
@@ -45,4 +45,11 @@ variable "mysql_password" {
 
 variable "mysql_database" {
   type = string
+}
+
+# ---------------------------------------------
+# Resource group
+# ---------------------------------------------
+data "azurerm_resource_group" "rg" {
+  name = "rg_konishi"
 }
